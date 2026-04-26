@@ -1,0 +1,97 @@
+:root {
+  --page: #070707;
+  --panel: #0a0a0a;
+  --line: rgba(243, 232, 203, 0.18);
+  --glow: rgba(243, 232, 203, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: var(--page);
+  overflow: hidden;
+}
+
+body {
+  min-height: 100svh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.qr-stage {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.055), transparent 34rem),
+    linear-gradient(180deg, #090909 0%, #050505 100%);
+}
+
+.qr-frame {
+  width: min(84vmin, 680px);
+  aspect-ratio: 1;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: clamp(18px, 4vmin, 34px);
+  background: var(--panel);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.85),
+    0 36px 100px rgba(0, 0, 0, 0.72),
+    0 0 54px var(--glow);
+  padding: clamp(12px, 2.2vmin, 24px);
+}
+
+.qr-code {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: clamp(12px, 2.6vmin, 24px);
+  image-rendering: auto;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .qr-stage {
+    padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  }
+
+  .qr-frame {
+    width: min(92vmin, 560px);
+    border-radius: 22px;
+    padding: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .qr-frame {
+    animation: reveal 720ms ease-out both;
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: scale(0.985);
+      filter: blur(4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+  }
+}

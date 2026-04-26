@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070707">
+  <meta name="color-scheme" content="dark">
+  <meta name="application-name" content="Moscatelli QR">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Moscatelli QR">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Moscatelli QR</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="preload" href="assets/qr-code.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <main class="qr-stage" aria-label="Digital contact card QR code">
+    <figure class="qr-frame">
+      <img class="qr-code" src="assets/qr-code.svg" alt="QR code linking to the digital contact card" decoding="sync" fetchpriority="high">
+    </figure>
+  </main>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
