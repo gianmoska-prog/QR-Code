@@ -41,11 +41,12 @@ body {
   user-select: none;
   -webkit-user-select: none;
   overflow: hidden;
-  /* Warm dark background matching the contact card */
   background:
     radial-gradient(ellipse 90% 58% at 50% 4%,  rgba(97, 53, 32, 0.10), transparent 60%),
     radial-gradient(ellipse 70% 48% at 50% 100%, rgba(70, 18, 18, 0.08), transparent 70%),
     linear-gradient(180deg, #120c0a 0%, #090706 42%, #060504 100%);
+  background-size: 160% 160%, 160% 160%, 100% 100%;
+  animation: ambience 18s ease-in-out infinite;
   font-family: var(--font-ui);
 }
 
@@ -228,4 +229,11 @@ body {
 /* ─── Desktop / tablet — cap the composition ─────────────────────────────── */
 @media (min-width: 640px) {
   .qr-frame { width: min(60vmin, 480px); }
+}
+
+@keyframes ambience {
+  0%   { background-position: 50% 0%, 50% 100%, 50% 0%; }
+  33%  { background-position: 52% 4%,  48% 96%,  50% 0%; }
+  66%  { background-position: 48% 2%,  52% 98%,  50% 0%; }
+  100% { background-position: 50% 0%, 50% 100%, 50% 0%; }
 }
