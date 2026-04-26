@@ -3,24 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#070707">
+  <meta name="theme-color" content="#090706">
   <meta name="color-scheme" content="dark">
   <meta name="application-name" content="QR">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="QR">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>QR</title>
+  <title>Moscatelli — Scan to Connect</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icons/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
   <link rel="preload" href="assets/qr-code.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <main class="qr-stage" aria-label="Digital contact card QR code">
-    <figure class="qr-frame">
-      <img class="qr-code" src="assets/qr-code.svg" alt="QR code linking to the digital contact card" decoding="sync" fetchpriority="high">
-    </figure>
+  <main class="qr-stage" aria-label="Moscatelli digital contact QR code">
+
+    <div class="frame" aria-hidden="true"></div>
+
+    <div class="composition">
+
+      <header class="wordmark" aria-label="Moscatelli house identity">
+        <span class="house-brand">Moscatelli</span>
+        <span class="house-divider" aria-hidden="true"></span>
+        <span class="house-city">Roma</span>
+      </header>
+
+      <figure class="qr-frame" aria-label="QR code">
+        <img class="qr-code" src="assets/qr-code.svg" alt="QR code — scan to open digital contact card" decoding="sync" fetchpriority="high">
+      </figure>
+
+      <footer class="qr-caption" aria-label="Scan instruction">
+        <span>Scan&nbsp;&nbsp;to&nbsp;&nbsp;Connect</span>
+      </footer>
+
+    </div>
+
   </main>
   <script src="assets/js/app.js" defer></script>
 </body>
