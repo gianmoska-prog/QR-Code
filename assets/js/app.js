@@ -1,6 +1,8 @@
 (() => {
   'use strict';
 
+  let wakeLock = null;
+
   const registerServiceWorker = async () => {
     if (!('serviceWorker' in navigator)) return;
 
@@ -15,9 +17,12 @@
     if (!('wakeLock' in navigator)) return;
 
     try {
-      await navigator.wakeLock.request('screen');
+      wakeLock = await navigator.wakeLock.request('screen');
+      wakeLock.addEventListener('release', () => {
+        wakeLock = null;
+      });
     } catch (error) {
-      // The QR code remains fully usable without a wake lock.
+      wakeLock = null;
     }
   };
 
