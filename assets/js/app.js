@@ -7,7 +7,8 @@
     if (!('serviceWorker' in navigator)) return;
 
     try {
-      await navigator.serviceWorker.register('./service-worker.js');
+      const registration = await navigator.serviceWorker.register('./service-worker.js?v=ambience-2.1.0');
+      await registration.update();
     } catch (error) {
       console.warn('Service worker registration failed:', error);
     }
